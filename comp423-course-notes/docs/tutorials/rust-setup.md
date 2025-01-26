@@ -181,16 +181,9 @@ fn main() {
     While `cargo build` compiles the project and generates an excutable file whicn then must be manually run, `cargo run` combines the build and execution steps into a single command.
 
 
-## Step 9: Preview the Tutorial & Commit Your Work :star_struck:
+## Step 9: Commit Your Work :star_struck:
 
-**(A)** Start the MkDocs development server:
-    ```
-    mkdocs serve
-    ```
-
-**(B)** Open the link in your browser and view your work.
-
-**(C)** Push your branch to Github
+**(A)** Push your branch to Github
     ```
     git add .
     git commit -m "Rust tutorial with Dev Container"

@@ -1,23 +1,24 @@
-# Setting up a dev container for Rust
+# Setting up a Dev Container for Rust
 
 * Primary author: [Shayna Patel](https://github.com/shaynapat3l)
 
 * Reviewer: [Bhavika Lingutla](https://github.com/bhavikal)
 
-This tutorial will guide you through setting up a Rust development environment using Dev Containers. By the end of the tutorial, you will have a working Rust project that prints '"Hello COMP423"' to standard output.
+This tutorial will guide you through setting up a Rust development environment using Dev Containers. By the end of the tutorial, you will have a working Rust project that prints *'"Hello COMP423"'* to standard output.
 
+!!!info
+    Some snippets of this tutorial were taken from or inspired by Kris Jordan's [COMP 423 MkDocs Tutorial](https://comp423-25s.github.io/resources/MkDocs/tutorial/#step-2-create-a-remote-repository-on-github").
+    
 ## Prerequisites :heart:
 
 Before you begin, make sure you have the following installed and set up:
 
-1. **A GitHub account**: If you don't have one yet, sign up at <a href="https://github.com/" target="_blank"> GitHub.</a>
-2. **Git Installed**: Install Git from <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">here.</a>
-3. **Docker installed**: Required to run the Dev Container. Get docker from <a href="https://www.docker.com/products/docker-desktop/" target="_blank">here.</a>
-4. **Visual Studio Code (VS Code)**: Download and install it from <a href="https://code.visualstudio.com/" target="_blank">here.</a>
-5. **Command-line basics**: You can review this <a href="https://www.w3schools.com/whatis/whatis_cli.asp" target="_blank">resource.</a>
+1. **A GitHub account**: If you don't have one yet, sign up at [GitHub](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+2. **Git Installed**: Install Git from [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+3. **Docker installed**: Required to run the Dev Container. Get [Docker](https://www.docker.com/products/docker-desktop/).
+4. **Visual Studio Code (VS Code)**: Download and install it from [here](https://code.visualstudio.com/).
+5. **Command-line basics**: You can review this [resource](https://www.w3schools.com/whatis/whatis_cli.asp).
 
-!!!note
-    Ensure Docker is running before proceeding with the steps below.
 
 ## Step 1: Create a New Dev Container Project :face_with_monocle:
 
@@ -34,7 +35,8 @@ git init
 
 **(C)** Create a README.md file:
 ```
-echo "#Rust Dev Container Project" > README.md"
+echo "# Rust Dev Container Project" > README.md
+echo "To view the entire tutorial, visit https://github.com/shaynapat3l/comp423-course-notes/blob/main/comp423-course-notes/docs/tutorials/rust-setup.md" >> README.md
 git add README.md
 git commit -m "Initial commit with README"
 ```
@@ -64,7 +66,7 @@ git remote add origin https://github.com/<your-username>/comp423-rust-dev.git
 ```
 
 !!!warning
-    Replace <your-username> with your GitHub username.
+    Replace `<your-username>` with your GitHub username.
 
 **(B)** Check your default branch name with the following command (it should be `main`):
 ```
@@ -73,6 +75,7 @@ git branch
 
 !!!note
     If the default branch is not `main`, rename it using `git branch -M main`.
+
 
 **(C)** Push your local commits to the GitHub repository:
 ```
@@ -84,14 +87,26 @@ git push --set-upstream origin main
 
 ## Step 4: Configure the Dev Container :gear:
 
-**(A)** Create a `.devcontainer` directory in the project root:
+**(A)** Open the `comp423-rust-dev` directory in Visual Studio Code by going to: File > Open Folder.
+
+!!!note
+    Make sure to install the Dev Containers extension for VS Code.
+
+
+**(B)** Create a `.devcontainer` directory in the project root:
 ```
 mkdir .devcontainer
 ```
 
-**(B)** Inside `.devcontainer`, create a `devcontainer.json` file:
+**(C)** Inside `.devcontainer`, create a `devcontainer.json` file.
 
-**(C)** Add the following content to `devcontainer.json`:
++ The `.devcontainer.json` file defines the configuration for your development environment. It specifies:
+    + `name`: A descriptive name for your dev container.
+    + `image`: The Docker image to use, in this case, the latest version of a Rust environment.
+    + `customizations`: Adds useful configurations to VS Code.
+
+
+**(D)** Add the following content to `devcontainer.json`:
 ```
 {
     "name": "Rust Dev Environment",
@@ -109,27 +124,25 @@ mkdir .devcontainer
 !!!note
     This configuration uses Microsoft's offical Rust image and installs the `rust-analyzer` extension automatically.
 
-**(D)** Open the comp423-rust-dev directory in Visual Studio Code:
-
-!!!note
-    Make sure to install the Dev Containers extension for VS Code.
 
 **(E)** Reopen the folder in a Dev Container.
 
-- Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS) and select Remote-Containers: Reopen in Container.
+- Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS) and select *Remote-Containers: Reopen in Container*.
 
 !!!warning
-    If the container fails to build, verify your Docker installation ensure the `devcontainer.json` file is correctly configured.
+    If the container fails to build, verify your Docker installation and ensure the `devcontainer.json` file is correctly configured.
+
 
 ## Step 5: Verify Rust Installation :check_mark:
 
-**(A)** Inside the Dev Container, check the Rust version:
+**(A)** Inside the Dev Container, check the Rust version by typing the following in your terminal:
 ```
 rustc --version
 ```
 
 !!!warning
     If the version is outdated, run `rustup update` to ensure you have the latest version of Rust. As of January 2025, the latest version of Rust is 1.84.0, released on January 9, 2025.
+
 
 ## Step 6: Create a Rust Project :woman_technologist:
 
@@ -142,6 +155,7 @@ cd hello-comp423
 !!!note
     The `--vcs none` flag ensures that Cargo does not create a Git repository automatically.
 
+
 ## Step 7: Write the program :pencil:
 
 **(A)** Open the `src/main.rs` file and modify it to print "Hello COMP423":
@@ -150,19 +164,21 @@ fn main() {
     println!("Hello COMP423");
 }
 ```
+
+
 ## Step 8: Compile and Run the Program :card_index_dividers:
 
-**(A)** Use `cargo build`
+**(A)** Use `cargo build`:
 
-1. Compile the project.
+1. In your terminal, compile the project:
     ```
     cargo build
     ```
-2. Run the compiled binary manually.
+2. Run the compiled binary manually:
     ```
     ./target/debug/hello-comp423
     ```
-+ Example Output:
+    + Example Output:
     ```
     Hello COMP423
     ```
@@ -170,9 +186,9 @@ fn main() {
 !!!tip
     `cargo build` is similar to gcc in COMP211. It compiles your source code into an executable file.
 
-**(B)** Alternatively, you can use `cargo run`
+**(B)** Alternatively, you can use `cargo run`:
 
-1. Use the cargo run command to compile and execute the program in one step:
+1. Use the `cargo run` command to compile and execute the program in one step:
     ```
     cargo run
     ```
@@ -181,15 +197,15 @@ fn main() {
     While `cargo build` compiles the project and generates an excutable file whicn then must be manually run, `cargo run` combines the build and execution steps into a single command.
 
 
-## Step 9: Commit Your Work :star_struck:
+## Step 9: Push Changes and Deploy :star_struck:
 
-**(A)** Push your branch to Github
+**(A)** Add and commit your changes:
     ```
     git add .
     git commit -m "Rust tutorial with Dev Container"
-    git push origin main
     ```
 
-
-!!!note
-    Some snippets of this tutorial were taken from or inspired by Kris Jordan's <a href="https://comp423-25s.github.io/resources/MkDocs/tutorial/#step-2-create-a-remote-repository-on-github" target="_blank">COMP 423 MkDocs tutorial</a>.
+**(B)** Push your changes to Github:
+    ```
+    git push origin main
+    ```

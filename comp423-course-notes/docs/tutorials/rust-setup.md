@@ -193,6 +193,3 @@ fn main() {
 
 !!!note
     Some snippets of this tutorial were taken from or inspired by Kris Jordan's <a href="https://comp423-25s.github.io/resources/MkDocs/tutorial/#step-2-create-a-remote-repository-on-github" target="_blank">COMP 423 MkDocs tutorial</a>.
-
-!!!note
-    Some snippets of this tutorial were taken from or inspired by Kris Jordan's <a href="https://comp423-25s.github.io/resources/MkDocs/tutorial/#step-2-create-a-remote-repository-on-github" target="_blank">COMP 423 MkDocs tutorial</a>.

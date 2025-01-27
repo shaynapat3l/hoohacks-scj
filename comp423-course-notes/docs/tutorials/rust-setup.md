@@ -36,7 +36,7 @@ git init
 **(C)** Create a README.md file:
 ```
 echo "# Rust Dev Container Project" > README.md
-echo "To view the entire tutorial, visit https://github.com/shaynapat3l/comp423-course-notes/blob/main/comp423-course-notes/docs/tutorials/rust-setup.md" >> README.md
+echo "To view the entire tutorial, visit https://shaynapat3l.github.io/comp423-course-notes/" >> README.md
 git add README.md
 git commit -m "Initial commit with README"
 ```
@@ -158,7 +158,7 @@ cd hello-comp423
 
 ## Step 7: Write the program :pencil:
 
-**(A)** Open the `src/main.rs` file and modify it to print "Hello COMP423":
+**(A)** Open the `src/main.rs` file and modify it to print *"Hello COMP423"*:
 ```
 fn main() {
     println!("Hello COMP423");
